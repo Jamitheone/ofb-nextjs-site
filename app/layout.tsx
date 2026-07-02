@@ -42,15 +42,52 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 'event_category': type
               });
             };
-            window.fireFormConversion = function() {
+            window.fireFormConversion = function(userData) {
+              // Enhanced Conversions: pass first-party data so Google can match to signed-in accounts
+              if (userData) {
+                var phone = (userData.phone || '').replace(/\D/g, '');
+                if (phone.length === 10) phone = '+1' + phone;
+                else if (phone.length === 11 && phone[0] === '1') phone = '+' + phone;
+                var nameParts = (userData.name || '').trim().split(/\s+/);
+                gtag('set', 'user_data', {
+                  email: userData.email || undefined,
+                  phone_number: phone || undefined,
+                  first_name: nameParts[0] || undefined,
+                  last_name: nameParts.length > 1 ? nameParts.slice(1).join(' ') : undefined
+                });
+              }
+              // Standard conversion tag — corrected label (was lXcP..., now 1XcP...)
               gtag('event', 'conversion', {
                 'send_to': 'AW-18174858325/1XcPCPbPobgcENWoudpD'
+              });
+              // Named event — covers Manual Event setup in Google Ads
+              gtag('event', 'submit_lead_form', {
+                'send_to': 'AW-18174858325'
+              });
+            };
+            window.fireContactClick = function(type) {
+              // Secondary signal — phone/email clicks (Contact - Email or Call)
+              gtag('event', 'conversion', {
+                'send_to': 'AW-18174858325/QY2oCIuNxrAcENWoudpD',
+                'event_category': type
+              });
+              gtag('event', 'contact_click', {
+                'send_to': 'AW-18174858325',
+                'contact_type': type
               });
             };
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-body`}>{children}</body>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-body`}>
+        {children}
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a418a1455ef5e64133111a8"
+          strategy="lazyOnload"
+        />
+      </body>
     </html>
   );
 }

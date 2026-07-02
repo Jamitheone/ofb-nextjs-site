@@ -22,7 +22,8 @@ const GlobeScene = dynamic(() => import("@/components/GlobeScene"), { ssr: false
 declare global {
   interface Window {
     fireConversion: (type: string) => void;
-    fireFormConversion: () => void;
+    fireContactClick: (type: string) => void;
+    fireFormConversion: (userData?: { email?: string; phone?: string; name?: string }) => void;
   }
 }
 
@@ -31,7 +32,7 @@ const PHONE = "(816) 304-6755";
 const PHONE_HREF = "tel:+18163046755";
 const EMAIL = "jmoore@ofbswfl.com";
 const EMAIL_HREF = "mailto:jmoore@ofbswfl.com";
-const FORMSUBMIT_URL = "https://formsubmit.co/ajax/jmoore@ofbswfl.com";
+const CONTACT_API_URL = "/api/contact";
 
 // ─── ICONS ───────────────────────────────────────────────────────────────────
 function PhoneIcon({ size = 18 }: { size?: number }) {
@@ -258,12 +259,13 @@ function HeroForm() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch(FORMSUBMIT_URL, {
+      const res = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ ...form, _captcha: "false", _subject: "New OFB Hero Form Inquiry" }),
       });
-      if (res.ok) { setStatus("sent"); window.fireFormConversion?.(); }
+      const data = await res.json();
+      if (res.ok && data.success) { setStatus("sent"); window.fireFormConversion?.({ email: form.email, phone: form.phone, name: form.name }); }
       else setStatus("error");
     } catch { setStatus("error"); }
   };
@@ -1344,12 +1346,13 @@ function ContactFormFull() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch(FORMSUBMIT_URL, {
+      const res = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ ...form, _captcha: "false", _subject: "New OFB Project Inquiry (Contact)" }),
       });
-      if (res.ok) { setStatus("sent"); window.fireFormConversion?.(); }
+      const data = await res.json();
+      if (res.ok && data.success) { setStatus("sent"); window.fireFormConversion?.({ email: form.email, phone: form.phone, name: form.name }); }
       else setStatus("error");
     } catch { setStatus("error"); }
   };
