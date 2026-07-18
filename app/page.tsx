@@ -187,7 +187,7 @@ function ScrollProgress() {
         className="h-full transition-[width] duration-75"
         style={{
           width: `${progress}%`,
-          background: "linear-gradient(90deg, #3e63e4, #7b9fd4)",
+          background: "linear-gradient(90deg, #8b93a6, #c7ccd6)",
         }}
       />
     </div>
@@ -199,11 +199,11 @@ function PulseDot() {
   return (
     <span className="relative flex h-2 w-2 mr-1">
       <motion.span
-        className="absolute inline-flex h-full w-full rounded-full bg-[#3e63e4] opacity-75"
+        className="absolute inline-flex h-full w-full rounded-full bg-[#8b93a6] opacity-75"
         animate={{ scale: [1, 1.9, 1], opacity: [0.75, 0, 0.75] }}
         transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
       />
-      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3e63e4]" />
+      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b93a6]" />
     </span>
   );
 }
@@ -233,7 +233,7 @@ function CtaButton({ href, onClick, children, variant = "primary", className = "
   variant?: "primary" | "ghost"; className?: string;
 }) {
   const styles = {
-    primary: "inline-flex items-center gap-2 bg-[#3e63e4] text-white font-semibold px-8 py-3.5 rounded-lg text-base shadow-xl shadow-[#3e63e4]/25 no-underline cursor-pointer",
+    primary: "btn-chrome inline-flex items-center gap-2 font-semibold px-8 py-3.5 rounded-lg text-base no-underline cursor-pointer",
     ghost: "inline-flex items-center gap-2 bg-white/[0.07] hover:bg-white/[0.11] border border-white/12 text-white font-semibold px-7 py-3.5 rounded-lg text-base no-underline backdrop-blur-sm cursor-pointer",
   };
   return (
@@ -271,11 +271,11 @@ function HeroForm() {
   };
 
   const lc = "block text-[10px] font-semibold text-white/40 uppercase tracking-widest mb-1.5";
-  const ic = "w-full bg-white/[0.05] border border-white/[0.09] text-white text-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-[#3e63e4]/50 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/20";
+  const ic = "w-full bg-white/[0.05] border border-white/[0.09] text-white text-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-[#8b93a6]/50 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/20";
 
   if (status === "sent") return (
     <div className="bg-white/[0.04] border border-white/[0.09] rounded-2xl p-10 backdrop-blur-xl flex flex-col items-center text-center">
-      <div className="w-16 h-16 rounded-full bg-[#3e63e4]/12 border border-[#3e63e4]/25 flex items-center justify-center mb-5 text-[#3e63e4]">
+      <div className="w-16 h-16 rounded-full bg-[#8b93a6]/12 border border-[#8b93a6]/25 flex items-center justify-center mb-5 text-[#8b93a6]">
         <CheckCircleIcon size={28} />
       </div>
       <h4 className="text-white text-lg mb-3" style={{ fontFamily: "var(--font-space-grotesk)" }}>Message Received</h4>
@@ -295,7 +295,7 @@ function HeroForm() {
         <div><label className={lc}>Email</label><input className={ic} type="email" placeholder="you@company.com" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} required /></div>
         <div><label className={lc}>Project Details</label><textarea className={`${ic} resize-none h-20`} placeholder="Office size, timeline, location..." value={form.project} onChange={e => setForm(f => ({ ...f, project: e.target.value }))} /></div>
         <motion.button type="submit" disabled={status === "sending"}
-          className="w-full bg-[#3e63e4] hover:bg-[#2d4fc7] text-white font-semibold py-3 rounded-lg shadow-lg shadow-[#3e63e4]/25 transition-colors disabled:opacity-60 cursor-pointer"
+          className="btn-chrome w-full font-semibold py-3 rounded-lg transition-colors disabled:opacity-60 cursor-pointer"
           whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
           {status === "sending" ? "Sending..." : "Request Free Assessment →"}
         </motion.button>
@@ -316,14 +316,14 @@ function Nav() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#050b1e]/90 backdrop-blur-xl border-b border-white/5 py-3" : "py-5"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#0e1530]/90 backdrop-blur-xl border-b border-white/5 py-3" : "py-5"}`}
       initial={{ y: -64, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Image src="/ofb-logo.jpg" alt="OFB of SWFL" width={52} height={52} className="rounded-sm" />
+        <Image src="/ofb-logo.png" alt="OFB of SWFL" width={52} height={52} className="rounded-sm" />
 
         {/* Links */}
         <div className="hidden md:flex items-center gap-7">
@@ -339,7 +339,7 @@ function Nav() {
             <PhoneIcon size={14} /> {PHONE}
           </a>
           <motion.a href="#contact"
-            className="inline-flex items-center gap-1.5 bg-[#3e63e4] text-white font-semibold text-sm px-5 h-9 rounded-lg no-underline shadow-md shadow-[#3e63e4]/25 cursor-pointer"
+            className="btn-chrome inline-flex items-center gap-1.5 font-semibold text-sm px-5 h-9 rounded-lg no-underline cursor-pointer"
             whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.97 }}>
             Get a Quote
           </motion.a>
@@ -356,14 +356,14 @@ function HeroSection() {
       {/* Spline background */}
       <div className="absolute inset-0 z-0">
         <SplineHero />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050b1e] via-[#050b1e]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050b1e] via-transparent to-transparent" />
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#050b1e] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0e1530] via-[#0e1530]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0e1530] via-transparent to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#0e1530] to-transparent" />
       </div>
 
       {/* Orbs */}
-      <div className="glow-orb absolute top-1/3 right-1/4 w-[700px] h-[500px] bg-[#3e63e4]/10" style={{ filter: "blur(130px)" }} />
-      <div className="glow-orb absolute bottom-1/4 right-1/3 w-[400px] h-[300px] bg-[#0d1d4a]/18" style={{ filter: "blur(100px)" }} />
+      <div className="glow-orb absolute top-1/3 right-1/4 w-[700px] h-[500px] bg-[#8b93a6]/10" style={{ filter: "blur(130px)" }} />
+      <div className="glow-orb absolute bottom-1/4 right-1/3 w-[400px] h-[300px] bg-[#1a2440]/18" style={{ filter: "blur(100px)" }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
         <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-center">
@@ -371,7 +371,7 @@ function HeroSection() {
           <div className="gsap-hero">
             <div className="flex items-center gap-2 mb-7">
               <PulseDot />
-              <Badge className="bg-[#3e63e4]/12 border border-[#3e63e4]/25 text-[#7b9fd4] text-[11px] font-semibold tracking-[0.12em] uppercase hover:bg-[#3e63e4]/12 backdrop-blur-sm px-3 py-1">
+              <Badge className="bg-[#8b93a6]/12 border border-[#8b93a6]/25 text-[#c7ccd6] text-[11px] font-semibold tracking-[0.12em] uppercase hover:bg-[#8b93a6]/12 backdrop-blur-sm px-3 py-1">
                 Serving Fortune 1000 &amp; Business Owners Nationwide
               </Badge>
             </div>
@@ -382,11 +382,11 @@ function HeroSection() {
             >
               Office Furniture<br />
               Decommissioning<br />
-              &amp; <em className="not-italic text-[#7b9fd4]">Liquidation.</em>
+              &amp; <em className="not-italic text-chrome">Liquidation.</em>
             </h1>
 
             <p className="text-white/55 text-lg mb-9 max-w-lg" style={{ fontWeight: 300, lineHeight: 1.8 }}>
-              Moving out, downsizing, or clearing a space? OFB of SW Florida handles removal, logistics, documentation, and asset resale — any size project, anywhere in the U.S.
+              Moving out, downsizing, or clearing a space? OFB of SW Florida handles removal, logistics, documentation, and asset resale. Any size project, anywhere in the U.S.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">
@@ -406,7 +406,7 @@ function HeroSection() {
                 { icon: <StarIcon size={13} filled />, text: "5-Star Rated" },
               ].map((t, i) => (
                 <div key={i} className="flex items-center gap-2 text-white/40 text-sm">
-                  <span className="text-[#7b9fd4]">{t.icon}</span>
+                  <span className="text-[#c7ccd6]">{t.icon}</span>
                   {t.text}
                 </div>
               ))}
@@ -446,7 +446,7 @@ const STATS = [
 function StatsBar() {
   return (
     <div className="gsap-stats relative py-14 border-y border-white/[0.06] overflow-hidden">
-      <div className="glow-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[80px] bg-[#7b9fd4]/8" style={{ filter: "blur(70px)" }} />
+      <div className="glow-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[80px] bg-[#c7ccd6]/8" style={{ filter: "blur(70px)" }} />
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
         {STATS.map((s, i) => (
           <motion.div
@@ -457,7 +457,7 @@ function StatsBar() {
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: i * 0.04 }}
           >
-            <div className="text-4xl lg:text-5xl font-bold mb-2 text-[#7b9fd4]" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.03em" }}>
+            <div className="text-4xl lg:text-5xl font-bold mb-2 text-[#c7ccd6]" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.03em" }}>
               <CountUp to={s.to} suffix={s.suffix} prefix={s.prefix ?? ""} />
             </div>
             <div className="text-white/35 text-sm tracking-wide">{s.label}</div>
@@ -484,10 +484,10 @@ const SERVICES: Service[] = [
   {
     icon: <BuildingIcon size={26} />,
     title: "Full Decommissioning",
-    desc: "End-to-end removal of everything in your space — furniture, fixtures, IT equipment. We leave it broom-clean and landlord-ready.",
-    accent: "#3e63e4",
+    desc: "End-to-end removal of everything in your space: furniture, fixtures, IT equipment. We leave it broom-clean and landlord-ready.",
+    accent: "#8b93a6",
     tagline: "One call. Empty space. Zero stress.",
-    body: "When you're vacating an office, the last thing you need is a dozen vendors, missed pickups, and a landlord threatening your security deposit. OFB of SW Florida handles the entire decommissioning process from first walkthrough to final broom-clean — furniture, cubicle systems, fixtures, signage, and IT hardware all handled under one contract.\n\nWe scope the project, build a removal plan, coordinate crew and logistics, and hand you a completed space with full disposal documentation. No surprises, no hidden costs, no leftover junk.",
+    body: "When you're vacating an office, the last thing you need is a dozen vendors, missed pickups, and a landlord threatening your security deposit. OFB of SW Florida handles the entire decommissioning process from first walkthrough to final broom-clean, furniture, cubicle systems, fixtures, signage, and IT hardware all handled under one contract.\n\nWe scope the project, build a removal plan, coordinate crew and logistics, and hand you a completed space with full disposal documentation. No surprises, no hidden costs, no leftover junk.",
     includes: [
       "On-site scoping and written project plan",
       "Furniture, cubicles, and fixture removal",
@@ -501,10 +501,10 @@ const SERVICES: Service[] = [
   {
     icon: <TagIcon size={26} />,
     title: "Asset Liquidation",
-    desc: "Maximize recovery value on outgoing assets. We source buyers, handle transactions, and cut you a check — or apply it to your project cost.",
-    accent: "#7b9fd4",
+    desc: "Maximize recovery value on outgoing assets. We source buyers, handle transactions, and cut you a check, or apply it to your project cost.",
+    accent: "#c7ccd6",
     tagline: "Turn your furniture into a check.",
-    body: "Most companies leave money on the table when they vacate a space — dumping or donating assets that have real resale value. OFB of SW Florida runs a full asset liquidation process that sources qualified buyers, handles all negotiations, and processes the transaction on your behalf.\n\nRecovery value gets applied directly to your project cost, reducing what you pay out of pocket. In many cases, liquidation revenue fully offsets the decommissioning fee. We handle everything — you just approve the final numbers.",
+    body: "Most companies leave money on the table when they vacate a space, dumping or donating assets that have real resale value. OFB of SW Florida runs a full asset liquidation process that sources qualified buyers, handles all negotiations, and processes the transaction on your behalf.\n\nRecovery value gets applied directly to your project cost, reducing what you pay out of pocket. In many cases, liquidation revenue fully offsets the decommissioning fee. We handle everything, you just approve the final numbers.",
     includes: [
       "Full asset inventory and valuation",
       "Buyer sourcing through our national dealer network",
@@ -519,9 +519,9 @@ const SERVICES: Service[] = [
     icon: <TruckIcon size={26} />,
     title: "Furniture Logistics",
     desc: "Coordinated pickup, transport, staging, and delivery. Any quantity. Any location. On your timeline.",
-    accent: "#3e63e4",
+    accent: "#8b93a6",
     tagline: "We move it. You don't touch it.",
-    body: "Whether you're relocating 50 workstations or clearing 500,000 square feet across multiple floors, OFB of SW Florida manages the full logistics chain. We handle freight booking, crew scheduling, permits, elevator reservations, and delivery coordination — so you have one point of contact and one timeline to track.\n\nAll transport is insured and documented. We work with building management to meet move-out requirements and handle any special handling for sensitive or oversized items.",
+    body: "Whether you're relocating 50 workstations or clearing 500,000 square feet across multiple floors, OFB of SW Florida manages the full logistics chain. We handle freight booking, crew scheduling, permits, elevator reservations, and delivery coordination, so you have one point of contact and one timeline to track.\n\nAll transport is insured and documented. We work with building management to meet move-out requirements and handle any special handling for sensitive or oversized items.",
     includes: [
       "Freight carrier booking and coordination",
       "Crew scheduling and supervision",
@@ -536,9 +536,9 @@ const SERVICES: Service[] = [
     icon: <ServerIcon size={26} />,
     title: "Data Center Clearance",
     desc: "Secure decommissioning of server rooms and IT infrastructure with full chain-of-custody documentation.",
-    accent: "#7b9fd4",
+    accent: "#c7ccd6",
     tagline: "Secure teardown. Documented proof.",
-    body: "IT decommissioning carries risk that standard moving companies aren't equipped to handle — data security, compliance documentation, and proper disposal of hardware that can't just be dropped at a loading dock. OFB of SW Florida provides structured data center clearance with chain-of-custody tracking from teardown to certified final disposition.\n\nWe coordinate with your IT team on data wiping requirements, pull racks and cabling cleanly, and provide disposal certificates that satisfy your compliance and audit requirements.",
+    body: "IT decommissioning carries risk that standard moving companies aren't equipped to handle, data security, compliance documentation, and proper disposal of hardware that can't just be dropped at a loading dock. OFB of SW Florida provides structured data center clearance with chain-of-custody tracking from teardown to certified final disposition.\n\nWe coordinate with your IT team on data wiping requirements, pull racks and cabling cleanly, and provide disposal certificates that satisfy your compliance and audit requirements.",
     includes: [
       "Pre-teardown walkthrough with your IT team",
       "Rack and server removal",
@@ -553,9 +553,9 @@ const SERVICES: Service[] = [
     icon: <FileTextIcon size={26} />,
     title: "Lease Surrender Planning",
     desc: "We coordinate with your landlord, building management, and legal team to ensure a clean, cost-free lease surrender.",
-    accent: "#3e63e4",
+    accent: "#8b93a6",
     tagline: "Leave clean. Keep your deposit.",
-    body: "A botched lease surrender can cost you tens of thousands in holdover fees, restoration charges, and security deposit forfeitures. OFB of SW Florida works directly with your landlord and building management team to understand the surrender requirements and execute a plan that meets every condition in your lease.\n\nWe document everything — photos, disposal certificates, restoration confirmations — and provide a complete close-out package you can hand directly to your legal team or property manager.",
+    body: "A botched lease surrender can cost you tens of thousands in holdover fees, restoration charges, and security deposit forfeitures. OFB of SW Florida works directly with your landlord and building management team to understand the surrender requirements and execute a plan that meets every condition in your lease.\n\nWe document everything, photos, disposal certificates, restoration confirmations, and provide a complete close-out package you can hand directly to your legal team or property manager.",
     includes: [
       "Lease document review for surrender obligations",
       "Landlord and building management coordination",
@@ -570,9 +570,9 @@ const SERVICES: Service[] = [
     icon: <GlobeIconSvg size={26} />,
     title: "Nationwide Coordination",
     desc: "Multi-site projects across 48 states. One point of contact. One invoice. One team you can trust to deliver.",
-    accent: "#7b9fd4",
+    accent: "#c7ccd6",
     tagline: "Coast to coast. One call.",
-    body: "Managing an office decommissioning across multiple locations is a logistical nightmare when every site has a different vendor, timeline, and point of contact. OFB of SW Florida centralizes the entire operation — we manage all sites, all timelines, and all vendors under a single project plan with one invoice at the end.\n\nWe've run coordinated projects across dozens of simultaneous locations for Fortune 1000 companies. Our national vendor network covers all 48 contiguous states, and our project management process keeps every site on schedule and every stakeholder informed.",
+    body: "Managing an office decommissioning across multiple locations is a logistical nightmare when every site has a different vendor, timeline, and point of contact. OFB of SW Florida centralizes the entire operation, we manage all sites, all timelines, and all vendors under a single project plan with one invoice at the end.\n\nWe've run coordinated projects across dozens of simultaneous locations for Fortune 1000 companies. Our national vendor network covers all 48 contiguous states, and our project management process keeps every site on schedule and every stakeholder informed.",
     includes: [
       "Centralized project management across all sites",
       "National vendor network in all 48 contiguous states",
@@ -619,7 +619,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
       <motion.div
         className="relative w-full sm:max-w-2xl max-h-[92dvh] overflow-y-auto rounded-t-3xl sm:rounded-2xl border border-white/[0.1] shadow-2xl"
         style={{
-          background: "linear-gradient(135deg, rgba(13,29,74,0.97) 0%, rgba(5,11,30,0.99) 100%)",
+          background: "linear-gradient(135deg, rgba(26,36,64,0.97) 0%, rgba(14,21,48,0.99) 100%)",
           backdropFilter: "blur(24px)",
         }}
         initial={{ y: 60, opacity: 0, scale: 0.97 }}
@@ -750,8 +750,8 @@ function ServicesSection() {
 
   // Unique glow colors per small card
   const cardGlows = [
-    { border: "rgba(123,159,212,0.35)", glow: "rgba(123,159,212,0.12)" },   // silver-blue
-    { border: "rgba(62,99,228,0.35)",   glow: "rgba(62,99,228,0.12)" },      // blue
+    { border: "rgba(199,204,214,0.35)", glow: "rgba(199,204,214,0.12)" },   // silver-blue
+    { border: "rgba(139,147,166,0.35)",   glow: "rgba(139,147,166,0.12)" },      // blue
     { border: "rgba(99,102,241,0.35)",  glow: "rgba(99,102,241,0.12)" },     // purple-leaning
     { border: "rgba(34,211,238,0.22)",  glow: "rgba(34,211,238,0.08)" },     // teal-leaning
   ];
@@ -761,17 +761,17 @@ function ServicesSection() {
       id="services"
       className="py-24 px-6 relative overflow-hidden"
       style={{
-        background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(13,29,74,0.55) 0%, #050b1e 70%)",
+        background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(26,36,64,0.55) 0%, #0e1530 70%)",
       }}
     >
       {/* Ambient orbs */}
-      <div className="glow-orb absolute bottom-0 left-0 w-[500px] h-[300px] bg-[#7b9fd4]/7" style={{ filter: "blur(110px)" }} />
-      <div className="glow-orb absolute top-0 right-0 w-[400px] h-[300px] bg-[#3e63e4]/7" style={{ filter: "blur(110px)" }} />
+      <div className="glow-orb absolute bottom-0 left-0 w-[500px] h-[300px] bg-[#c7ccd6]/7" style={{ filter: "blur(110px)" }} />
+      <div className="glow-orb absolute top-0 right-0 w-[400px] h-[300px] bg-[#8b93a6]/7" style={{ filter: "blur(110px)" }} />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16 gsap-services-header">
-          <p className="label-upper text-[#3e63e4] mb-4">What We Do</p>
+          <p className="label-upper text-[#8b93a6] mb-4">What We Do</p>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
             <h2 className="text-3xl lg:text-4xl text-white max-w-lg">End-to-End Office<br />Asset Management</h2>
             <p className="text-white/45 text-base max-w-sm lg:text-right" style={{ lineHeight: 1.8 }}>
@@ -783,14 +783,14 @@ function ServicesSection() {
         {/* ── BENTO GRID ── */}
         <div className="grid lg:grid-cols-3 gap-4">
 
-          {/* Hero card — spans 2 cols on desktop */}
+          {/* Hero card, spans 2 cols on desktop */}
           <motion.button
             onClick={() => setActive(heroService)}
             className="group relative lg:col-span-2 rounded-2xl p-8 overflow-hidden text-left w-full"
             style={{
-              background: "linear-gradient(135deg, rgba(62,99,228,0.18) 0%, rgba(13,29,74,0.85) 55%, rgba(5,11,30,0.95) 100%)",
-              border: "1px solid rgba(62,99,228,0.28)",
-              boxShadow: "0 0 60px rgba(62,99,228,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
+              background: "linear-gradient(135deg, rgba(139,147,166,0.18) 0%, rgba(26,36,64,0.85) 55%, rgba(14,21,48,0.95) 100%)",
+              border: "1px solid rgba(139,147,166,0.28)",
+              boxShadow: "0 0 60px rgba(139,147,166,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
             }}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -804,26 +804,26 @@ function ServicesSection() {
             {/* Corner glow */}
             <div
               className="absolute top-0 right-0 w-72 h-72 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse at top right, rgba(62,99,228,0.18), transparent 65%)" }}
+              style={{ background: "radial-gradient(ellipse at top right, rgba(139,147,166,0.18), transparent 65%)" }}
             />
             {/* Hover bright border overlay */}
             <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-              style={{ border: "1px solid rgba(62,99,228,0.55)", boxShadow: "0 0 40px rgba(62,99,228,0.12)" }}
+              style={{ border: "1px solid rgba(139,147,166,0.55)", boxShadow: "0 0 40px rgba(139,147,166,0.12)" }}
             />
 
-            {/* Icon — large, top-right float */}
+            {/* Icon, large, top-right float */}
             <div className="flex items-start justify-between mb-8">
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.14em] uppercase text-[#3e63e4]/70 bg-[#3e63e4]/10 border border-[#3e63e4]/20 rounded-full px-3 py-1">
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.14em] uppercase text-[#8b93a6]/70 bg-[#8b93a6]/10 border border-[#8b93a6]/20 rounded-full px-3 py-1">
                 <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true"><polyline points="1 4.5 3.5 7 8 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 Full-Service
               </span>
               <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center"
                 style={{
-                  background: "linear-gradient(135deg, rgba(62,99,228,0.25), rgba(62,99,228,0.08))",
-                  border: "1px solid rgba(62,99,228,0.30)",
-                  color: "#7b9fd4",
+                  background: "linear-gradient(135deg, rgba(139,147,166,0.25), rgba(139,147,166,0.08))",
+                  border: "1px solid rgba(139,147,166,0.30)",
+                  color: "#c7ccd6",
                 }}
               >
                 <BuildingIcon size={32} />
@@ -836,15 +836,15 @@ function ServicesSection() {
             >
               {heroService.title}
             </h3>
-            <p className="text-[#7b9fd4] text-sm font-medium mb-4">{heroService.tagline}</p>
+            <p className="text-[#c7ccd6] text-sm font-medium mb-4">{heroService.tagline}</p>
             <p className="text-white/50 text-base max-w-lg" style={{ lineHeight: 1.75 }}>{heroService.desc}</p>
 
-            <div className="flex items-center gap-2 mt-8 text-sm font-semibold text-[#3e63e4] group-hover:gap-3 transition-all duration-300">
+            <div className="flex items-center gap-2 mt-8 text-sm font-semibold text-[#8b93a6] group-hover:gap-3 transition-all duration-300">
               Explore service <ArrowRightIcon size={14} />
             </div>
           </motion.button>
 
-          {/* Small cards — 1 col, stacked as 1x2 + 1x2 alongside hero */}
+          {/* Small cards, 1 col, stacked as 1x2 + 1x2 alongside hero */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             {smallServices.slice(0, 2).map((s, i) => {
               const glow = cardGlows[i];
@@ -875,7 +875,7 @@ function ServicesSection() {
                     className="absolute top-0 right-0 w-32 h-32 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-400"
                     style={{ background: `radial-gradient(ellipse at top right, ${glow.glow}, transparent 70%)` }}
                   />
-                  <span className="text-[#7b9fd4] mb-4 opacity-70 block">{s.icon}</span>
+                  <span className="text-[#c7ccd6] mb-4 opacity-70 block">{s.icon}</span>
                   <h4 className="text-white text-sm font-semibold mb-1.5" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}>{s.title}</h4>
                   <p className="text-white/38 text-xs" style={{ lineHeight: 1.7 }}>{s.tagline}</p>
                   <div className="flex items-center gap-1 mt-4 text-[11px] font-semibold opacity-50 group-hover:opacity-100 -translate-x-0.5 group-hover:translate-x-0 transition-all duration-300" style={{ color: s.accent }}>
@@ -886,7 +886,7 @@ function ServicesSection() {
             })}
           </div>
 
-          {/* Second row of small cards — full width 2-col */}
+          {/* Second row of small cards, full width 2-col */}
           {smallServices.slice(2, 4).map((s, i) => {
             const glow = cardGlows[i + 2];
             return (
@@ -916,7 +916,7 @@ function ServicesSection() {
                   className="absolute top-0 right-0 w-32 h-32 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-400"
                   style={{ background: `radial-gradient(ellipse at top right, ${glow.glow}, transparent 70%)` }}
                 />
-                <span className="text-[#7b9fd4] mb-4 opacity-70 block">{s.icon}</span>
+                <span className="text-[#c7ccd6] mb-4 opacity-70 block">{s.icon}</span>
                 <h4 className="text-white text-sm font-semibold mb-1.5" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}>{s.title}</h4>
                 <p className="text-white/38 text-xs" style={{ lineHeight: 1.7 }}>{s.tagline}</p>
                 <div className="flex items-center gap-1 mt-4 text-[11px] font-semibold opacity-50 group-hover:opacity-100 -translate-x-0.5 group-hover:translate-x-0 transition-all duration-300" style={{ color: s.accent }}>
@@ -927,13 +927,13 @@ function ServicesSection() {
           })}
         </div>
 
-        {/* ── MARQUEE STRIP — Nationwide Coordination ── */}
+        {/* ── MARQUEE STRIP, Nationwide Coordination ── */}
         <motion.button
           onClick={() => setActive(marqueeService)}
           className="group relative w-full mt-4 rounded-2xl overflow-hidden text-left"
           style={{
-            background: "linear-gradient(90deg, rgba(123,159,212,0.08) 0%, rgba(62,99,228,0.06) 50%, rgba(123,159,212,0.08) 100%)",
-            border: "1px solid rgba(123,159,212,0.18)",
+            background: "linear-gradient(90deg, rgba(199,204,214,0.08) 0%, rgba(139,147,166,0.06) 50%, rgba(199,204,214,0.08) 100%)",
+            border: "1px solid rgba(199,204,214,0.18)",
           }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -943,11 +943,11 @@ function ServicesSection() {
         >
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-            style={{ border: "1px solid rgba(123,159,212,0.38)", boxShadow: "0 0 40px rgba(123,159,212,0.07)" }}
+            style={{ border: "1px solid rgba(199,204,214,0.38)", boxShadow: "0 0 40px rgba(199,204,214,0.07)" }}
           />
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-7 py-5">
             <div className="flex items-center gap-5">
-              <span className="text-[#7b9fd4] opacity-70 shrink-0"><GlobeIconSvg size={22} /></span>
+              <span className="text-[#c7ccd6] opacity-70 shrink-0"><GlobeIconSvg size={22} /></span>
               <div>
                 <h4 className="text-white text-sm font-semibold" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}>
                   {marqueeService.title}
@@ -958,11 +958,11 @@ function ServicesSection() {
             <div className="flex items-center gap-8 shrink-0">
               {["48 States Covered", "Single Point of Contact", "One Invoice"].map((tag) => (
                 <span key={tag} className="hidden md:flex items-center gap-1.5 text-xs text-white/40">
-                  <span className="w-1 h-1 rounded-full bg-[#7b9fd4]/50" />
+                  <span className="w-1 h-1 rounded-full bg-[#c7ccd6]/50" />
                   {tag}
                 </span>
               ))}
-              <div className="flex items-center gap-1 text-xs font-semibold text-[#7b9fd4] opacity-60 group-hover:opacity-100 transition-opacity duration-200">
+              <div className="flex items-center gap-1 text-xs font-semibold text-[#c7ccd6] opacity-60 group-hover:opacity-100 transition-opacity duration-200">
                 Learn more <ArrowRightIcon size={11} />
               </div>
             </div>
@@ -992,14 +992,14 @@ function ProcessTimeline() {
     <section
       id="process"
       className="py-24 relative overflow-hidden"
-      style={{ background: "#060d24" }}
+      style={{ background: "#141c33" }}
     >
-      <div className="glow-orb absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[150px] bg-[#3e63e4]/6" style={{ filter: "blur(70px)" }} />
+      <div className="glow-orb absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[150px] bg-[#8b93a6]/6" style={{ filter: "blur(70px)" }} />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20 gsap-timeline-header">
-          <p className="label-upper text-[#3e63e4] mb-4">How It Works</p>
+          <p className="label-upper text-[#8b93a6] mb-4">How It Works</p>
           <h2 className="text-3xl lg:text-4xl text-white mb-4">From First Call to Final Sign-Off</h2>
           <p className="text-white/45 max-w-md mx-auto text-base" style={{ lineHeight: 1.8 }}>
             Five clear steps. No jargon. No runaround. Just a clean, documented project start to finish.
@@ -1008,14 +1008,14 @@ function ProcessTimeline() {
 
         {/* ── DESKTOP: connected horizontal timeline ── */}
         <div className="hidden lg:block">
-          {/* The connecting dashed line — sits behind nodes, centered vertically at ~40px (half of node height) */}
+          {/* The connecting dashed line, sits behind nodes, centered vertically at ~40px (half of node height) */}
           <div className="relative mb-0">
             {/* Track */}
             <div className="absolute top-[40px] left-[9%] right-[9%] h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
             {/* Animated fill */}
             <motion.div
               className="absolute top-[40px] left-[9%] h-px"
-              style={{ background: "linear-gradient(90deg, #3e63e4cc, #7b9fd4cc)" }}
+              style={{ background: "linear-gradient(90deg, #8b93a6cc, #c7ccd6cc)" }}
               initial={{ width: "0%" }}
               whileInView={{ width: "82%" }}
               viewport={{ once: true, margin: "-80px" }}
@@ -1025,7 +1025,7 @@ function ProcessTimeline() {
             <div
               className="absolute top-[40px] left-[9%] right-[9%] h-px pointer-events-none"
               style={{
-                backgroundImage: "repeating-linear-gradient(90deg, rgba(62,99,228,0.35) 0px, rgba(62,99,228,0.35) 6px, transparent 6px, transparent 14px)",
+                backgroundImage: "repeating-linear-gradient(90deg, rgba(139,147,166,0.35) 0px, rgba(139,147,166,0.35) 6px, transparent 6px, transparent 14px)",
               }}
             />
 
@@ -1048,9 +1048,9 @@ function ProcessTimeline() {
                       style={
                         isFinal
                           ? {
-                              background: "linear-gradient(135deg, #3e63e4, #1e3a8a)",
-                              border: "2px solid rgba(62,99,228,0.50)",
-                              boxShadow: "0 0 32px rgba(62,99,228,0.35), 0 0 64px rgba(62,99,228,0.12)",
+                              background: "linear-gradient(135deg, #8b93a6, #28324f)",
+                              border: "2px solid rgba(139,147,166,0.50)",
+                              boxShadow: "0 0 32px rgba(139,147,166,0.35), 0 0 64px rgba(139,147,166,0.12)",
                             }
                           : {
                               background: "rgba(255,255,255,0.04)",
@@ -1065,7 +1065,7 @@ function ProcessTimeline() {
                       {isFinal && (
                         <motion.div
                           className="absolute inset-[-6px] rounded-full pointer-events-none"
-                          style={{ border: "1px solid rgba(62,99,228,0.25)" }}
+                          style={{ border: "1px solid rgba(139,147,166,0.25)" }}
                           animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.15, 0.5] }}
                           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
                         />
@@ -1078,7 +1078,7 @@ function ProcessTimeline() {
                       className="inline-block text-[10px] font-bold tracking-[0.12em] rounded-full px-2.5 py-0.5 mb-2.5"
                       style={
                         isFinal
-                          ? { background: "rgba(62,99,228,0.20)", color: "#7b9fd4", border: "1px solid rgba(62,99,228,0.30)" }
+                          ? { background: "rgba(139,147,166,0.20)", color: "#c7ccd6", border: "1px solid rgba(139,147,166,0.30)" }
                           : { background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.35)", border: "1px solid rgba(255,255,255,0.09)" }
                       }
                     >
@@ -1105,7 +1105,7 @@ function ProcessTimeline() {
           <div className="absolute left-[39px] top-0 bottom-0 w-px" style={{ background: "rgba(255,255,255,0.07)" }} />
           <motion.div
             className="absolute left-[39px] top-0 w-px"
-            style={{ background: "linear-gradient(180deg, #3e63e4cc, #7b9fd4cc)" }}
+            style={{ background: "linear-gradient(180deg, #8b93a6cc, #c7ccd6cc)" }}
             initial={{ height: "0%" }}
             whileInView={{ height: "100%" }}
             viewport={{ once: true }}
@@ -1124,18 +1124,18 @@ function ProcessTimeline() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  {/* Node — positioned to overlap the vertical line */}
+                  {/* Node, positioned to overlap the vertical line */}
                   <div
                     className="absolute -left-[52px] top-0 w-[40px] h-[40px] rounded-full flex items-center justify-center z-10"
                     style={
                       isFinal
                         ? {
-                            background: "linear-gradient(135deg, #3e63e4, #1e3a8a)",
-                            border: "2px solid rgba(62,99,228,0.45)",
-                            boxShadow: "0 0 20px rgba(62,99,228,0.30)",
+                            background: "linear-gradient(135deg, #8b93a6, #28324f)",
+                            border: "2px solid rgba(139,147,166,0.45)",
+                            boxShadow: "0 0 20px rgba(139,147,166,0.30)",
                           }
                         : {
-                            background: "#060d24",
+                            background: "#141c33",
                             border: "1px solid rgba(255,255,255,0.14)",
                           }
                     }
@@ -1149,9 +1149,9 @@ function ProcessTimeline() {
                     style={
                       isFinal
                         ? {
-                            background: "linear-gradient(135deg, rgba(62,99,228,0.12), rgba(5,11,30,0.95))",
-                            border: "1px solid rgba(62,99,228,0.25)",
-                            boxShadow: "0 0 30px rgba(62,99,228,0.08)",
+                            background: "linear-gradient(135deg, rgba(139,147,166,0.12), rgba(14,21,48,0.95))",
+                            border: "1px solid rgba(139,147,166,0.25)",
+                            boxShadow: "0 0 30px rgba(139,147,166,0.08)",
                           }
                         : { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }
                     }
@@ -1161,7 +1161,7 @@ function ProcessTimeline() {
                         className="inline-block text-[10px] font-bold tracking-[0.12em] rounded-full px-2.5 py-0.5"
                         style={
                           isFinal
-                            ? { background: "rgba(62,99,228,0.20)", color: "#7b9fd4", border: "1px solid rgba(62,99,228,0.30)" }
+                            ? { background: "rgba(139,147,166,0.20)", color: "#c7ccd6", border: "1px solid rgba(139,147,166,0.30)" }
                             : { background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.35)", border: "1px solid rgba(255,255,255,0.09)" }
                         }
                       >
@@ -1197,23 +1197,23 @@ function TestimonialSection() {
             backgroundPosition: "center",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050b1e] via-[#050b1e]/85 to-[#050b1e]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050b1e] via-transparent to-[#050b1e]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0e1530] via-[#0e1530]/85 to-[#0e1530]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0e1530] via-transparent to-[#0e1530]" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center gsap-jeff-card">
-        <div className="flex justify-center gap-1 mb-10 text-[#7b9fd4]">
+        <div className="flex justify-center gap-1 mb-10 text-[#c7ccd6]">
           {[...Array(5)].map((_, i) => <StarIcon key={i} size={18} filled />)}
         </div>
 
         {/* Large quote mark */}
-        <div className="text-[120px] leading-none text-[#3e63e4]/20 font-bold mb-[-30px] select-none" style={{ fontFamily: "Georgia, serif" }}>&ldquo;</div>
+        <div className="text-[120px] leading-none text-[#8b93a6]/20 font-bold mb-[-30px] select-none" style={{ fontFamily: "Georgia, serif" }}>&ldquo;</div>
 
         <blockquote
           className="text-white/85 text-xl lg:text-2xl font-light mb-10"
           style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em", lineHeight: 1.45 }}
         >
-          We've handled projects from 5,000 to 500,000 square feet. The complexity doesn't scare us — it's what we were built for. Our clients don't manage vendors. They call us, and we handle the rest.
+          We've handled projects from 5,000 to 500,000 square feet. The complexity doesn't scare us, it's what we were built for. Our clients don't manage vendors. They call us, and we handle the rest.
         </blockquote>
 
         <div className="flex items-center justify-center gap-4">
@@ -1232,29 +1232,29 @@ function TestimonialSection() {
 const WHY_POINTS = [
   { icon: <ShieldIcon size={18} />, title: "Project Completion Guarantee", desc: "We don't leave until the job is done. Every project comes with our written guarantee." },
   { icon: <ClockIcon size={18} />, title: "2-Hour Response, Always", desc: "Jeff personally responds to every inquiry within 2 hours during business hours. No gatekeepers." },
-  { icon: <FileTextIcon size={18} />, title: "Full Documentation Package", desc: "Asset manifests, disposal certificates, and landlord sign-off paperwork — all included, no extra charge." },
+  { icon: <FileTextIcon size={18} />, title: "Full Documentation Package", desc: "Asset manifests, disposal certificates, and landlord sign-off paperwork, all included, no extra charge." },
   { icon: <UsersIcon size={18} />, title: "One Team, One Invoice", desc: "We don't broker your work to strangers. Our crew handles your project start to finish." },
 ];
 
 function WhyOFBSection() {
   return (
     <section id="why-ofb" className="py-24 px-6 relative overflow-hidden">
-      <div className="glow-orb absolute top-0 right-0 w-[500px] h-[300px] bg-[#7b9fd4]/7" style={{ filter: "blur(110px)" }} />
+      <div className="glow-orb absolute top-0 right-0 w-[500px] h-[300px] bg-[#c7ccd6]/7" style={{ filter: "blur(110px)" }} />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left */}
           <div className="gsap-jeff-card">
-            <h2 className="text-3xl lg:text-4xl text-white mb-6">The Difference Is in the <span style={{ color: "#3e63e4" }}>Details</span></h2>
+            <h2 className="text-3xl lg:text-4xl text-white mb-6">The Difference Is in the <span style={{ color: "#8b93a6" }}>Details</span></h2>
             <p className="text-white/45 text-base mb-10" style={{ lineHeight: 1.8 }}>
-              Most brokers pass your project to a third party. We don't. Jeff Moore personally oversees every job — and our guarantee means you're never left holding the bag.
+              Most brokers pass your project to a third party. We don't. Jeff Moore personally oversees every job, and our guarantee means you're never left holding the bag.
             </p>
 
             {/* Guarantee card */}
-            <div className="bg-gradient-to-br from-[#7b9fd4]/8 to-[#7b9fd4]/4 border border-[#7b9fd4]/18 rounded-2xl p-6">
-              <p className="text-[#7b9fd4] font-semibold text-sm mb-3" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.7rem" }}>Our Written Guarantee</p>
+            <div className="bg-gradient-to-br from-[#c7ccd6]/8 to-[#c7ccd6]/4 border border-[#c7ccd6]/18 rounded-2xl p-6">
+              <p className="text-[#c7ccd6] font-semibold text-sm mb-3" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.7rem" }}>Our Written Guarantee</p>
               <p className="text-white/45 text-sm" style={{ lineHeight: 1.75 }}>
-                If we scope it, we deliver it — on time and within budget. We've never left a project unfinished in over 10 years of operation.
+                If we scope it, we deliver it, on time and within budget. We've never left a project unfinished in over 10 years of operation.
               </p>
             </div>
           </div>
@@ -1266,7 +1266,7 @@ function WhyOFBSection() {
               return (
                 <motion.div
                   key={i}
-                  className="gsap-why-point group relative pl-6 border-l-2 border-white/10 hover:border-[#3e63e4] transition-colors duration-300 cursor-default"
+                  className="gsap-why-point group relative pl-6 border-l-2 border-white/10 hover:border-[#8b93a6] transition-colors duration-300 cursor-default"
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -1296,15 +1296,15 @@ function WhyOFBSection() {
 function GlobeSection() {
   return (
     <section id="coverage" className="py-24 px-6 relative overflow-hidden">
-      <div className="glow-orb absolute top-0 right-1/4 w-[500px] h-[400px] bg-[#3e63e4]/7" style={{ filter: "blur(110px)" }} />
+      <div className="glow-orb absolute top-0 right-1/4 w-[500px] h-[400px] bg-[#8b93a6]/7" style={{ filter: "blur(110px)" }} />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="gsap-contact-left">
-            <p className="label-upper text-[#3e63e4] mb-4">Nationwide Coverage</p>
+            <p className="label-upper text-[#8b93a6] mb-4">Nationwide Coverage</p>
             <h2 className="text-3xl lg:text-4xl text-white mb-5">One Call Covers the Country</h2>
             <p className="text-white/45 text-base mb-10" style={{ lineHeight: 1.8 }}>
-              From Naples, FL to Los Angeles. From Chicago to Austin. We've completed projects in 48 states. Multi-site rollouts, single-office moves — all under one contract.
+              From Naples, FL to Los Angeles. From Chicago to Austin. We've completed projects in 48 states. Multi-site rollouts, single-office moves, all under one contract.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-10">
@@ -1315,7 +1315,7 @@ function GlobeSection() {
                 { to: 100, suffix: "%", label: "Completion" },
               ].map((s, i) => (
                 <div key={i} className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-4">
-                  <div className="text-2xl font-bold mb-1 text-[#7b9fd4]" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.03em" }}>
+                  <div className="text-2xl font-bold mb-1 text-[#c7ccd6]" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.03em" }}>
                     <CountUp to={s.to} suffix={s.suffix} />
                   </div>
                   <div className="text-white/35 text-xs tracking-wide">{s.label}</div>
@@ -1358,11 +1358,11 @@ function ContactFormFull() {
   };
 
   const lc = "block text-[10px] font-semibold text-white/35 uppercase tracking-widest mb-1.5";
-  const ic = "w-full bg-white/[0.04] border border-white/[0.08] text-white text-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-[#3e63e4]/45 focus:bg-white/[0.06] transition-all duration-200 placeholder:text-white/18";
+  const ic = "w-full bg-white/[0.04] border border-white/[0.08] text-white text-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-[#8b93a6]/45 focus:bg-white/[0.06] transition-all duration-200 placeholder:text-white/18";
 
   if (status === "sent") return (
     <div className="flex flex-col items-center justify-center text-center py-16">
-      <div className="w-20 h-20 rounded-full bg-[#3e63e4]/10 border border-[#3e63e4]/22 flex items-center justify-center mb-6 text-[#3e63e4]">
+      <div className="w-20 h-20 rounded-full bg-[#8b93a6]/10 border border-[#8b93a6]/22 flex items-center justify-center mb-6 text-[#8b93a6]">
         <CheckCircleIcon size={32} />
       </div>
       <h4 className="text-white text-xl mb-3" style={{ fontFamily: "var(--font-space-grotesk)" }}>Message Received</h4>
@@ -1386,21 +1386,21 @@ function ContactFormFull() {
         <div>
           <label className={lc}>Timeline</label>
           <select className={`${ic} cursor-pointer`} value={form.timeline} onChange={e => setForm(f => ({ ...f, timeline: e.target.value }))}>
-            <option value="" className="bg-[#0d1d4a]">Select...</option>
-            <option value="asap" className="bg-[#0d1d4a]">ASAP</option>
-            <option value="2weeks" className="bg-[#0d1d4a]">Within 2 weeks</option>
-            <option value="1month" className="bg-[#0d1d4a]">Within 1 month</option>
-            <option value="planning" className="bg-[#0d1d4a]">Planning phase</option>
+            <option value="" className="bg-[#1a2440]">Select...</option>
+            <option value="asap" className="bg-[#1a2440]">ASAP</option>
+            <option value="2weeks" className="bg-[#1a2440]">Within 2 weeks</option>
+            <option value="1month" className="bg-[#1a2440]">Within 1 month</option>
+            <option value="planning" className="bg-[#1a2440]">Planning phase</option>
           </select>
         </div>
         <div>
           <label className={lc}>Office Size</label>
           <select className={`${ic} cursor-pointer`} value={form.size} onChange={e => setForm(f => ({ ...f, size: e.target.value }))}>
-            <option value="" className="bg-[#0d1d4a]">Select...</option>
-            <option value="small" className="bg-[#0d1d4a]">Under 5,000 sq ft</option>
-            <option value="medium" className="bg-[#0d1d4a]">5,000 – 25,000 sq ft</option>
-            <option value="large" className="bg-[#0d1d4a]">25,000 – 100,000 sq ft</option>
-            <option value="enterprise" className="bg-[#0d1d4a]">100,000+ sq ft</option>
+            <option value="" className="bg-[#1a2440]">Select...</option>
+            <option value="small" className="bg-[#1a2440]">Under 5,000 sq ft</option>
+            <option value="medium" className="bg-[#1a2440]">5,000 – 25,000 sq ft</option>
+            <option value="large" className="bg-[#1a2440]">25,000 – 100,000 sq ft</option>
+            <option value="enterprise" className="bg-[#1a2440]">100,000+ sq ft</option>
           </select>
         </div>
       </div>
@@ -1409,7 +1409,7 @@ function ContactFormFull() {
         <textarea className={`${ic} resize-none h-28`} placeholder="Location, what needs to be removed, special requirements..." value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} />
       </div>
       <motion.button type="submit" disabled={status === "sending"}
-        className="w-full bg-[#3e63e4] hover:bg-[#2d4fc7] text-white font-semibold py-3.5 rounded-lg shadow-xl shadow-[#3e63e4]/20 transition-colors disabled:opacity-60 cursor-pointer"
+        className="w-full btn-chrome font-semibold py-3.5 rounded-lg transition-colors disabled:opacity-60 cursor-pointer"
         whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}>
         {status === "sending" ? "Sending..." : "Send Project Details →"}
       </motion.button>
@@ -1420,21 +1420,21 @@ function ContactFormFull() {
 
 function ContactSection() {
   const items = [
-    { icon: <PhoneIcon size={18} />, label: "Phone — Call Jeff Directly", value: <a href={PHONE_HREF} onClick={() => window?.fireConversion?.("phone_click_contact")} className="text-white font-semibold no-underline hover:text-white/80 transition-colors cursor-pointer">{PHONE}</a> },
+    { icon: <PhoneIcon size={18} />, label: "Phone, Call Jeff Directly", value: <a href={PHONE_HREF} onClick={() => window?.fireConversion?.("phone_click_contact")} className="text-white font-semibold no-underline hover:text-white/80 transition-colors cursor-pointer">{PHONE}</a> },
     { icon: <MailIcon size={18} />, label: "Email", value: <a href={EMAIL_HREF} onClick={() => window?.fireConversion?.("email_click_contact")} className="text-white font-semibold no-underline hover:text-white/80 transition-colors cursor-pointer">{EMAIL}</a> },
-    { icon: <MapPinIcon size={18} />, label: "HQ & Service Area", value: <span className="text-white font-semibold">Naples, FL — Projects Nationwide</span> },
+    { icon: <MapPinIcon size={18} />, label: "HQ & Service Area", value: <span className="text-white font-semibold">Naples, FL, Projects Nationwide</span> },
   ];
 
   return (
     <section id="contact" className="py-24 px-6 relative overflow-hidden">
-      <div className="glow-orb absolute top-0 right-0 w-[500px] h-[400px] bg-[#3e63e4]/9" style={{ filter: "blur(110px)" }} />
-      <div className="glow-orb absolute bottom-0 left-0 w-[400px] h-[300px] bg-[#0d1d4a]/12" style={{ filter: "blur(90px)" }} />
+      <div className="glow-orb absolute top-0 right-0 w-[500px] h-[400px] bg-[#8b93a6]/9" style={{ filter: "blur(110px)" }} />
+      <div className="glow-orb absolute bottom-0 left-0 w-[400px] h-[300px] bg-[#1a2440]/12" style={{ filter: "blur(90px)" }} />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left */}
           <div className="gsap-contact-left">
-            <p className="label-upper text-[#3e63e4]/70 mb-4">Get In Touch</p>
+            <p className="label-upper text-[#8b93a6]/70 mb-4">Get In Touch</p>
             <h2 className="text-3xl lg:text-4xl text-white mb-4">Let's Talk About Your Project</h2>
             <p className="text-white/45 text-base mb-10" style={{ lineHeight: 1.8 }}>
               Whether you have a project starting next week or planning six months out, reach out. Jeff personally responds to every inquiry.
@@ -1443,7 +1443,7 @@ function ContactSection() {
             <div className="space-y-5 mb-10">
               {items.map((item, i) => (
                 <motion.div key={i} className="flex items-start gap-4" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                  <span className="text-[#3e63e4] flex-shrink-0 mt-0.5">{item.icon}</span>
+                  <span className="text-[#8b93a6] flex-shrink-0 mt-0.5">{item.icon}</span>
                   <div>
                     <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-0.5">{item.label}</p>
                     <div className="text-base">{item.value}</div>
@@ -1453,10 +1453,10 @@ function ContactSection() {
             </div>
 
             {/* Guarantee */}
-            <div className="bg-gradient-to-br from-[#7b9fd4]/8 to-transparent border border-[#7b9fd4]/16 rounded-2xl p-6">
-              <p className="text-[#7b9fd4] font-semibold text-sm mb-3" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.7rem" }}>Our Guarantee</p>
+            <div className="bg-gradient-to-br from-[#c7ccd6]/8 to-transparent border border-[#c7ccd6]/16 rounded-2xl p-6">
+              <p className="text-[#c7ccd6] font-semibold text-sm mb-3" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.7rem" }}>Our Guarantee</p>
               <p className="text-white/40 text-sm" style={{ lineHeight: 1.75 }}>
-                Every project comes with our written completion guarantee. If we scope it, we finish it — on time and on budget.
+                Every project comes with our written completion guarantee. If we scope it, we finish it, on time and on budget.
               </p>
             </div>
           </div>
@@ -1481,7 +1481,7 @@ function Footer() {
           <div>
             {/* Footer logo */}
             <div className="mb-5">
-              <Image src="/ofb-logo.jpg" alt="OFB of SWFL" width={52} height={52} className="rounded-sm" />
+              <Image src="/ofb-logo.png" alt="OFB of SWFL" width={52} height={52} className="rounded-sm" />
             </div>
             <p className="text-white/28 text-sm max-w-xs" style={{ lineHeight: 1.75 }}>
               Full-service office decommissioning and asset liquidation for corporate tenants and Fortune 1000 companies nationwide.
@@ -1506,7 +1506,7 @@ function Footer() {
             <ul className="space-y-2.5">
               <li><a href={PHONE_HREF} className="text-white/35 hover:text-white/65 text-sm no-underline transition-colors">{PHONE}</a></li>
               <li><a href={EMAIL_HREF} className="text-white/35 hover:text-white/65 text-sm no-underline transition-colors">{EMAIL}</a></li>
-              <li><span className="text-white/25 text-sm">Naples, FL — Serving Nationwide</span></li>
+              <li><span className="text-white/25 text-sm">Naples, FL, Serving Nationwide</span></li>
             </ul>
           </div>
         </div>
@@ -1601,7 +1601,7 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="bg-[#050b1e] min-h-screen overflow-x-hidden">
+    <main className="bg-[#0e1530] min-h-screen overflow-x-hidden">
       <div className="noise-overlay" />
       <ScrollProgress />
       <Nav />

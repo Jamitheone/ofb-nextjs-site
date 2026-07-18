@@ -116,6 +116,13 @@ export async function POST(req: NextRequest) {
       crmOk = true;
     } catch (crmErr) {
       console.error("GHL push error:", crmErr);
+      // CRM push failed silently otherwise — alert so the lead isn't lost.
+      await resend.emails.send({
+        from: "OFB Website <noreply@ofbswfl.com>",
+        to: "jmoore@ofbswfl.com",
+        subject: "ALERT: website lead did not reach the CRM",
+        html: `<p>A lead submitted the ofbswfl.com form but failed to save to GHL. Add manually:</p><p>${name} / ${email} / ${phone || "no phone"} / ${company || "no company"}</p><p>Error: ${String(crmErr)}</p>`,
+      }).catch(() => {});
     }
 
     const { error } = await resend.emails.send({

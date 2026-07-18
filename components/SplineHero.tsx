@@ -18,9 +18,9 @@ export default function SplineHero() {
           position: "absolute",
           inset: 0,
           background: `
-            radial-gradient(ellipse 80% 60% at 70% 30%, rgba(62,99,228,0.18) 0%, transparent 65%),
-            radial-gradient(ellipse 50% 40% at 85% 60%, rgba(30,58,138,0.22) 0%, transparent 60%),
-            radial-gradient(ellipse 60% 50% at 20% 80%, rgba(13,29,74,0.35) 0%, transparent 70%)
+            radial-gradient(ellipse 80% 60% at 70% 30%, rgba(139,147,166,0.18) 0%, transparent 65%),
+            radial-gradient(ellipse 50% 40% at 85% 60%, rgba(40,50,79,0.22) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 50% at 20% 80%, rgba(26,36,64,0.35) 0%, transparent 70%)
           `,
         }}
       />
@@ -34,14 +34,14 @@ export default function SplineHero() {
         <defs>
           <linearGradient id="sweep1" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="40%" stopColor="#7b9fd4" stopOpacity="0.8" />
+            <stop offset="40%" stopColor="#c7ccd6" stopOpacity="0.8" />
             <stop offset="60%" stopColor="#ffffff" stopOpacity="0.9" />
             <stop offset="100%" stopColor="transparent" />
             <animateTransform attributeName="gradientTransform" type="translate" from="-1 0" to="1 0" dur="4s" repeatCount="indefinite" />
           </linearGradient>
           <linearGradient id="sweep2" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="35%" stopColor="#3e63e4" stopOpacity="0.6" />
+            <stop offset="35%" stopColor="#8b93a6" stopOpacity="0.6" />
             <stop offset="55%" stopColor="#a0b8e8" stopOpacity="0.7" />
             <stop offset="100%" stopColor="transparent" />
             <animateTransform attributeName="gradientTransform" type="translate" from="-1 0" to="1 0" dur="5.5s" begin="1.2s" repeatCount="indefinite" />
@@ -64,9 +64,9 @@ export default function SplineHero() {
       )}
 
       {/* Edge gradients — blend into page */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "14rem", background: "linear-gradient(to bottom, transparent 0%, #050b1e 100%)" }} />
-      <div style={{ position: "absolute", inset: "0 0 0 0", width: "40%", background: "linear-gradient(to right, #050b1e 0%, rgba(5,11,30,0.55) 60%, transparent 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "6rem", background: "linear-gradient(to bottom, #050b1e 0%, transparent 100%)" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "14rem", background: "linear-gradient(to bottom, transparent 0%, #0e1530 100%)" }} />
+      <div style={{ position: "absolute", inset: "0 0 0 0", width: "40%", background: "linear-gradient(to right, #0e1530 0%, rgba(14,21,48,0.55) 60%, transparent 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "6rem", background: "linear-gradient(to bottom, #0e1530 0%, transparent 100%)" }} />
     </div>
   );
 }

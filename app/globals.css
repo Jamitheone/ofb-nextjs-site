@@ -51,12 +51,12 @@
 
 :root {
   /* OFB brand tokens — matched to dot.cards/jeffmooreofb */
-  --ofb-navy: #050b1e;
-  --ofb-navy-mid: #0d1d4a;
-  --ofb-navy-light: #1e3a8a;
-  --ofb-accent: #3e63e4;
-  --ofb-accent-hover: #2d4fc7;
-  --ofb-silver: #7b9fd4;
+  --ofb-navy: #0e1530;
+  --ofb-navy-mid: #1a2440;
+  --ofb-navy-light: #28324f;
+  --ofb-accent: #8b93a6;
+  --ofb-accent-hover: #6d7690;
+  --ofb-silver: #c7ccd6;
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -154,6 +154,32 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.7rem;
+}
+
+/* Brushed chrome button — matches the OFB shield logo's metal border */
+.btn-chrome {
+  background: linear-gradient(163deg, #eef1f6 0%, #c7ccd6 40%, #9aa1b0 58%, #cbd0da 100%);
+  color: #0e1530;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 8px 22px rgba(0, 0, 0, 0.38);
+}
+.btn-chrome:hover {
+  background: linear-gradient(163deg, #ffffff 0%, #d6dbe4 40%, #a7aec0 58%, #d6dbe4 100%);
+}
+
+/* Chrome / brushed-metal accent text — echoes the logo's silver lettering */
+.text-chrome {
+  background: linear-gradient(180deg, #ffffff 0%, #d6dae3 36%, #949bac 63%, #cfd4dd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Brushed steel hairline divider */
+.steel-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(199, 204, 214, 0.5), transparent);
 }
 
 /* Noise texture overlay */

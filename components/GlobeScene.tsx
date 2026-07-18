@@ -5,11 +5,11 @@ import * as THREE from "three";
 
 /* ─── OFB brand palette ─── */
 const C = {
-  navy:       0x0d1d4a,
-  navyLight:  0x1e3a8a,
-  red:        0x3e63e4,
+  navy:       0x1a2440,
+  navyLight:  0x28324f,
+  red:        0x8b93a6,
   redGlow:    0x5b7df5,
-  gold:       0x7b9fd4,
+  gold:       0xc7ccd6,
   white:      0xffffff,
   dot:        0x7ab3ff,
 };

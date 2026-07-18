@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function EstimatorPage() {
   return (
-    <main className="min-h-screen bg-[#050b1e] text-white antialiased">
+    <main className="min-h-screen bg-[#0e1530] text-white antialiased">
       <div className="noise-overlay" />
       <DecommissioningEstimator />
     </main>

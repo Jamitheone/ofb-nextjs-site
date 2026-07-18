@@ -160,24 +160,24 @@ export default function DecommissioningEstimator() {
     if (estimate.urgency >= 3)
       return {
         tag: "Move now",
-        color: "#c8102e",
+        color: "#8b93a6",
         line: "A tight timeline is the biggest risk to your recovery value. The faster we scope it, the more buyers we can line up before the space has to clear.",
       };
     if (estimate.urgency === 2)
       return {
         tag: "Plan this month",
-        color: "#b8972e",
+        color: "#c7ccd6",
         line: "Thirty days is workable but the clock matters. Locking a plan now protects the top of your recovery range.",
       };
     if (estimate.urgency === 1)
       return {
         tag: "Good runway",
-        color: "#3e63e4",
+        color: "#8b93a6",
         line: "You have room to place assets with the highest paying buyers. This is the window where recovery value is strongest.",
       };
     return {
       tag: "Early planning",
-      color: "#7b9fd4",
+      color: "#c7ccd6",
       line: "No date yet is fine. Getting the numbers now means you move with a plan instead of scrambling later.",
     };
   })();
@@ -221,7 +221,7 @@ export default function DecommissioningEstimator() {
 
   const lc = "block text-[10px] font-semibold text-white/40 uppercase tracking-widest mb-1.5";
   const ic =
-    "w-full bg-white/[0.05] border border-white/[0.09] text-white text-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-[#3e63e4]/50 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/20";
+    "w-full bg-white/[0.05] border border-white/[0.09] text-white text-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-[#8b93a6]/50 focus:bg-white/[0.07] transition-all duration-200 placeholder:text-white/20";
 
   const totalSteps = 4;
   const progress = step >= totalSteps ? 100 : Math.round((step / totalSteps) * 100);
@@ -229,8 +229,8 @@ export default function DecommissioningEstimator() {
   return (
     <section className="relative min-h-screen px-6 py-24 overflow-hidden">
       {/* ambient glow, matches site */}
-      <div className="glow-orb absolute top-1/4 right-1/4 w-[600px] h-[400px] bg-[#3e63e4]/10" style={{ filter: "blur(130px)" }} />
-      <div className="glow-orb absolute bottom-1/4 left-1/4 w-[400px] h-[300px] bg-[#0d1d4a]/18" style={{ filter: "blur(100px)" }} />
+      <div className="glow-orb absolute top-1/4 right-1/4 w-[600px] h-[400px] bg-[#8b93a6]/10" style={{ filter: "blur(130px)" }} />
+      <div className="glow-orb absolute bottom-1/4 left-1/4 w-[400px] h-[300px] bg-[#1a2440]/18" style={{ filter: "blur(100px)" }} />
 
       <div className="relative max-w-3xl mx-auto">
         {/* Header */}
@@ -238,7 +238,7 @@ export default function DecommissioningEstimator() {
           <a href="/" className="inline-flex items-center gap-1.5 text-white/40 hover:text-white text-xs no-underline mb-8 transition-colors">
             <BackIcon size={14} /> Back to site
           </a>
-          <p className="label-upper text-[#3e63e4]/70 mb-4">Decommissioning Value Estimator</p>
+          <p className="label-upper text-[#8b93a6]/70 mb-4">Decommissioning Value Estimator</p>
           <h1 className="text-3xl lg:text-5xl text-white mb-4">What is your office worth on the way out?</h1>
           <p className="text-white/45 text-base max-w-xl mx-auto" style={{ lineHeight: 1.8 }}>
             Answer four quick questions. Get an illustrative asset recovery range and a read on how urgent your project is. No account, no obligation.
@@ -256,7 +256,7 @@ export default function DecommissioningEstimator() {
             </div>
             <div className="h-1 w-full bg-white/[0.06] rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-[#3e63e4] rounded-full"
+                className="h-full bg-[#8b93a6] rounded-full"
                 initial={false}
                 animate={{ width: `${progress}%` }}
                 transition={{ type: "spring", stiffness: 200, damping: 30 }}
@@ -319,7 +319,7 @@ export default function DecommissioningEstimator() {
                         onClick={() => toggleAsset(a.key)}
                         className={`text-left rounded-xl border p-4 transition-all cursor-pointer ${
                           active
-                            ? "bg-[#3e63e4]/12 border-[#3e63e4]/45"
+                            ? "bg-[#8b93a6]/12 border-[#8b93a6]/45"
                             : "bg-white/[0.03] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.05]"
                         }`}
                       >
@@ -332,7 +332,7 @@ export default function DecommissioningEstimator() {
                           </div>
                           <span
                             className={`flex-shrink-0 w-5 h-5 rounded-md border flex items-center justify-center transition-all ${
-                              active ? "bg-[#3e63e4] border-[#3e63e4] text-white" : "border-white/20 text-transparent"
+                              active ? "bg-[#8b93a6] border-[#8b93a6] text-[#0e1530]" : "border-white/20 text-transparent"
                             }`}
                           >
                             <CheckIcon size={12} />
@@ -361,7 +361,7 @@ export default function DecommissioningEstimator() {
                         type="button"
                         onClick={() => setTimeline(t.key)}
                         className={`text-left rounded-xl border p-4 transition-all cursor-pointer ${
-                          active ? "bg-[#3e63e4]/12 border-[#3e63e4]/45" : "bg-white/[0.03] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.05]"
+                          active ? "bg-[#8b93a6]/12 border-[#8b93a6]/45" : "bg-white/[0.03] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.05]"
                         }`}
                       >
                         <p className="text-white text-sm font-semibold mb-0.5" style={{ fontFamily: "var(--font-space-grotesk)" }}>{t.label}</p>
@@ -389,7 +389,7 @@ export default function DecommissioningEstimator() {
                         type="button"
                         onClick={() => setCondition(c.key)}
                         className={`text-left rounded-xl border p-4 transition-all cursor-pointer ${
-                          active ? "bg-[#3e63e4]/12 border-[#3e63e4]/45" : "bg-white/[0.03] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.05]"
+                          active ? "bg-[#8b93a6]/12 border-[#8b93a6]/45" : "bg-white/[0.03] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.05]"
                         }`}
                       >
                         <p className="text-white text-sm font-semibold mb-0.5" style={{ fontFamily: "var(--font-space-grotesk)" }}>{c.label}</p>
@@ -406,7 +406,7 @@ export default function DecommissioningEstimator() {
               <motion.div key="s4" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
                 {status === "sent" ? (
                   <div className="text-center py-6">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-[#3e63e4]/12 border border-[#3e63e4]/25 flex items-center justify-center mb-5 text-[#3e63e4]">
+                    <div className="w-16 h-16 mx-auto rounded-full bg-[#8b93a6]/12 border border-[#8b93a6]/25 flex items-center justify-center mb-5 text-[#8b93a6]">
                       <CheckIcon size={28} />
                     </div>
                     <h2 className="text-2xl text-white mb-3">Your estimate is on its way</h2>
@@ -416,14 +416,14 @@ export default function DecommissioningEstimator() {
                     </p>
                     <a
                       href={CALENDLY_HREF}
-                      className="inline-flex items-center gap-2 bg-[#3e63e4] hover:bg-[#2d4fc7] text-white font-semibold px-7 py-3 rounded-lg text-sm no-underline shadow-xl shadow-[#3e63e4]/25 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 btn-chrome font-semibold px-7 py-3 rounded-lg text-sm no-underline transition-colors cursor-pointer"
                     >
                       Book a call with Jeff <ArrowRightIcon size={14} />
                     </a>
                   </div>
                 ) : (
                   <>
-                    <p className="label-upper text-[#3e63e4]/70 mb-3 text-center">Estimated asset recovery</p>
+                    <p className="label-upper text-[#8b93a6]/70 mb-3 text-center">Estimated asset recovery</p>
                     <div className="text-center mb-2">
                       <span className="text-4xl lg:text-5xl text-white font-bold" style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.04em" }}>
                         {fmtUSD(estimate.low)}
@@ -477,7 +477,7 @@ export default function DecommissioningEstimator() {
                         <motion.button
                           type="submit"
                           disabled={status === "sending"}
-                          className="w-full bg-[#3e63e4] hover:bg-[#2d4fc7] text-white font-semibold py-3.5 rounded-lg shadow-xl shadow-[#3e63e4]/20 transition-colors disabled:opacity-60 cursor-pointer flex items-center justify-center gap-2"
+                          className="w-full btn-chrome font-semibold py-3.5 rounded-lg transition-colors disabled:opacity-60 cursor-pointer flex items-center justify-center gap-2"
                           whileHover={{ scale: 1.01, y: -1 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -513,7 +513,7 @@ export default function DecommissioningEstimator() {
                 type="button"
                 onClick={() => setStep((s) => s + 1)}
                 disabled={!canAdvance}
-                className="inline-flex items-center gap-2 bg-[#3e63e4] hover:bg-[#2d4fc7] text-white font-semibold px-7 py-3 rounded-lg text-sm shadow-xl shadow-[#3e63e4]/25 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="inline-flex items-center gap-2 btn-chrome font-semibold px-7 py-3 rounded-lg text-sm transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 {step === totalSteps - 1 ? "See my estimate" : "Continue"} <ArrowRightIcon size={14} />
               </button>
