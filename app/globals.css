@@ -158,6 +158,8 @@
 
 /* Brushed chrome button — matches the OFB shield logo's metal border */
 .btn-chrome {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(163deg, #eef1f6 0%, #c7ccd6 40%, #9aa1b0 58%, #cbd0da 100%);
   color: #0e1530;
   border: 1px solid rgba(255, 255, 255, 0.55);
@@ -165,6 +167,37 @@
 }
 .btn-chrome:hover {
   background: linear-gradient(163deg, #ffffff 0%, #d6dbe4 40%, #a7aec0 58%, #d6dbe4 100%);
+}
+/* Specular sweep: metal catches the light once per hover */
+.btn-chrome::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.7) 50%, transparent);
+  transform: translateX(-140%) skewX(-18deg);
+  pointer-events: none;
+}
+.btn-chrome:hover::after {
+  animation: chrome-sweep 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes chrome-sweep {
+  to { transform: translateX(320%) skewX(-18deg); }
+}
+.btn-chrome:focus-visible {
+  outline: 2px solid #c7ccd6;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Chrome / brushed-metal accent text — echoes the logo's silver lettering */
