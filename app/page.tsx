@@ -13,6 +13,7 @@ import {
 } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import SplineHero from "@/components/SplineHero";
@@ -32,6 +33,9 @@ const PHONE = "(816) 304-6755";
 const PHONE_HREF = "tel:+18163046755";
 const EMAIL = "jmoore@ofbswfl.com";
 const EMAIL_HREF = "mailto:jmoore@ofbswfl.com";
+// Jeff's GHL sub-account, white-labeled onto the TSS domain so it reads as his
+// portal rather than GoHighLevel's. Verified live 2026-07-28 (200, serves the app).
+const CRM_URL = "https://app.thestaleysocial.com";
 const CONTACT_API_URL = "/api/contact";
 
 // ─── ICONS ───────────────────────────────────────────────────────────────────
@@ -1508,13 +1512,30 @@ function Footer() {
               <li><a href={EMAIL_HREF} className="text-white/35 hover:text-white/65 text-sm no-underline transition-colors">{EMAIL}</a></li>
               <li><span className="text-white/25 text-sm">Naples, FL, Serving Nationwide</span></li>
             </ul>
+
+            {/* Jeff asked for a way to reach his CRM from his own site. It used
+                to be a 12%-opacity "Client Login" in the copyright bar, which is
+                not findable. Same destination, promoted to a real control. */}
+            <a
+              href={CRM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-chrome label-upper inline-flex items-center gap-2 mt-7 px-4 py-2.5 rounded-sm no-underline"
+            >
+              Lead CRM
+              <ArrowUpRight size={13} strokeWidth={2.5} />
+            </a>
+            <p className="text-white/22 text-xs mt-2.5">Your leads, calls and quotes, one place.</p>
           </div>
         </div>
 
         <Separator className="bg-white/[0.05] mb-8" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/18 text-xs">© {new Date().getFullYear()} Office Furniture Brokers of SW Florida. All rights reserved.</p>
-          <p className="text-white/12 text-xs">Naples, FL · Serving 48 States</p>
+          <div className="flex items-center gap-6">
+            <p className="text-white/12 text-xs">Naples, FL · Serving 48 States</p>
+            {/* The CRM link lives in the Contact column now, one link not two. */}
+          </div>
         </div>
       </div>
     </footer>
