@@ -227,11 +227,9 @@ export default function DecommissioningEstimator() {
   const progress = step >= totalSteps ? 100 : Math.round((step / totalSteps) * 100);
 
   return (
-    <section className="relative min-h-screen px-6 py-24 overflow-hidden">
-      {/* ambient glow, matches site */}
-      <div className="glow-orb absolute top-1/4 right-1/4 w-[600px] h-[400px] bg-[#8b93a6]/10" style={{ filter: "blur(130px)" }} />
-      <div className="glow-orb absolute bottom-1/4 left-1/4 w-[400px] h-[300px] bg-[#1a2440]/18" style={{ filter: "blur(100px)" }} />
-
+    <section className="relative min-h-[100dvh] px-6 py-24 overflow-hidden">
+      {/* The two ambient glow orbs that used to sit here are gone along with the
+          .glow-orb utility. See the note in globals.css. */}
       <div className="relative max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

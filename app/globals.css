@@ -138,12 +138,48 @@
   }
   html {
     @apply font-sans;
+    /* Anchor links land under the fixed 68px header without this. */
+    scroll-padding-top: 92px;
+    scroll-behavior: smooth;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-space-grotesk, ui-sans-serif, system-ui, sans-serif);
     font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  /* Body copy reads long at 1.8; paragraphs set their own leading per section. */
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Scroll entrance reveal, used by components/Reveal.tsx.
+   Deliberately additive: .reveal on its own does nothing, so content is visible
+   by default and stays visible if JS, or the browser, or the user's motion
+   preference says no. Only browsers with scroll-driven animation support opt in,
+   and there the animation always ENDS visible. */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      /* --reveal-i staggers siblings along the scroll instead of on a timer. */
+      animation-range: entry calc(2% + var(--reveal-i, 0) * 3%) entry
+        calc(46% + var(--reveal-i, 0) * 3%);
+    }
   }
 }
 
@@ -154,6 +190,36 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.7rem;
+}
+
+/* Small field / column label. Same family as .label-upper but sized for form
+   labels and column headers, where 0.18em tracking is too loose to scan. */
+.label-field {
+  font-family: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  color: rgb(255 255 255 / 0.5);
+}
+
+/* Long-form legal copy. Only used on /privacy and /terms, which is why it is a
+   local rule rather than a typography plugin. */
+.legal-prose h2 {
+  font-size: 1.15rem;
+  color: #fff;
+  margin: 2.75rem 0 0.9rem;
+}
+.legal-prose p {
+  color: rgb(255 255 255 / 0.62);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+  max-width: 68ch;
+}
+.legal-prose a {
+  color: #c7ccd6;
+  text-underline-offset: 3px;
 }
 
 /* Brushed chrome button — matches the OFB shield logo's metal border */
@@ -227,16 +293,7 @@
   background-size: 128px 128px;
 }
 
-/* Glow orb utility */
-.glow-orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  pointer-events: none;
-}
-.glow-orb-xl {
-  filter: blur(120px);
-}
-.glow-orb-2xl {
-  filter: blur(160px);
-}
+/* .glow-orb removed. There were eleven blurred radial gradients scattered across
+   the page. Each one is a large-area GPU blur that repaints on scroll, they were
+   the strongest single "AI built this" signal on the site, and the design now
+   gets its depth from photography and surface tone instead. */
