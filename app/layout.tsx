@@ -104,6 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-18174858325');
+            gtag('config', 'G-59R11DBQEN');
             window.fireConversion = function(type) {
               gtag('event', 'conversion', {
                 'send_to': 'AW-18174858325/QY2oCIuNxrAcENWoudpD',
@@ -144,6 +145,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 'contact_type': type
               });
             };
+          `}
+        </Script>
+        <Script id="clarity-init" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "xwn3ofbfx1");
           `}
         </Script>
       </head>
