@@ -6,9 +6,9 @@ import { Reveal } from "@/components/Reveal";
 // never rendered in the Chrome MCP sandbox, added the whole three.js bundle to
 // the page, and communicated "we are on Earth".
 //
-// What replaces it does actual SEO work: naming the Southwest Florida metros in
+// What replaces it does actual SEO work: naming the Florida metros statewide in
 // crawlable text is the local relevance signal the old site had none of, since
-// "48 states" alone gives Google nothing to match a "Fort Myers office
+// "48 states" alone gives Google nothing to match an "Orlando office
 // decommissioning" query against. The metro list is also the areaServed in the
 // LocalBusiness schema, so the on-page text and the structured data agree.
 
@@ -31,12 +31,12 @@ export default function Coverage() {
           <div>
             <p className="label-upper text-[#8b93a6] mb-4">Coverage</p>
             <h2 className="text-white text-3xl lg:text-[2.6rem] text-balance">
-              Based in {BUSINESS.city}. Working in 48 states.
+              Every Florida market. Working in 48 states.
             </h2>
             <p className="text-white/60 text-base mt-5 max-w-[54ch] leading-relaxed">
-              Southwest Florida is home, and it is where we can be on site for a walkthrough on
-              short notice. Beyond it, our vendor network covers the 48 contiguous states under
-              one project plan and one invoice.
+              We cover Florida end to end, from the Panhandle to the Keys, with crews on site for a
+              walkthrough on short notice across every major metro. Beyond the state line, our vendor
+              network covers the 48 contiguous states under one project plan and one invoice.
             </p>
 
             <dl className="grid grid-cols-2 gap-x-8 gap-y-6 mt-10 m-0 max-w-md">
@@ -53,7 +53,7 @@ export default function Coverage() {
 
           <div>
             <h3 className="label-field text-white/45 mb-5">
-              Southwest and Central Florida service area
+              Statewide Florida service area
             </h3>
             <ul className="list-none m-0 p-0 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-0">
               {FLORIDA_METROS.map((metro, i) => (

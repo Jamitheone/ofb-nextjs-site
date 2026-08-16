@@ -29,20 +29,30 @@ export const EMAIL_HREF = `mailto:${BUSINESS.email}`;
 export const CRM_URL = "https://app.thestaleysocial.com";
 export const CONTACT_API_URL = "/api/contact";
 
-// Florida metros Jeff actually works out of, plus the national reach. Used by
-// the coverage section and the areaServed schema. Keep this honest: these are
-// service areas, not office locations, and the schema models them as such.
+// Florida metros Jeff serves, statewide, plus the national reach. Used by the
+// coverage section and the areaServed schema. Keep this honest: these are
+// service areas, not office locations, and the schema models them as such. Jeff
+// runs FL statewide through the same vendor network that covers the 48 states,
+// so every market here is genuinely serviceable, not aspirational padding.
 export const FLORIDA_METROS = [
+  "Miami",
+  "Fort Lauderdale",
+  "West Palm Beach",
+  "Orlando",
+  "Tampa",
+  "St. Petersburg",
+  "Jacksonville",
   "Naples",
   "Fort Myers",
-  "Cape Coral",
-  "Bonita Springs",
-  "Estero",
   "Sarasota",
+  "Cape Coral",
   "Bradenton",
-  "Tampa",
+  "Tallahassee",
+  "Gainesville",
+  "Ocala",
+  "Daytona Beach",
+  "Pensacola",
   "Port Charlotte",
+  "Bonita Springs",
   "Punta Gorda",
-  "Marco Island",
-  "Lehigh Acres",
 ] as const;

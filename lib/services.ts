@@ -51,9 +51,9 @@ export const SERVICES: Service[] = [
       "Bankruptcy and receivership clearances",
       "Downsizing and space consolidations",
     ],
-    seoTitle: "Office Decommissioning Services, Naples & Nationwide",
+    seoTitle: "Office Decommissioning Services, Florida & Nationwide",
     seoDescription:
-      "Full-service office decommissioning. Furniture, cubicles, fixtures and IT removed under one contract, with disposal certificates and a broom-clean handover. Naples FL and nationwide.",
+      "Full-service office decommissioning. Furniture, cubicles, fixtures and IT removed under one contract, with disposal certificates and a broom-clean handover. Across Florida and nationwide.",
     faqs: [
       {
         q: "What does office decommissioning actually include?",

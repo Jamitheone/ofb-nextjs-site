@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: `%s | ${BUSINESS.shortName}`,
   },
   description:
-    "Office furniture decommissioning, liquidation and asset removal for corporate tenants and Fortune 1000 companies. Based in Naples FL, projects in 48 states. Free assessment, 2-hour response.",
+    "Office furniture decommissioning, liquidation and asset removal for corporate tenants and Fortune 1000 companies. Serving all of Florida statewide, projects in 48 states. Free assessment, 2-hour response.",
   applicationName: BUSINESS.name,
   authors: [{ name: BUSINESS.name, url: SITE_URL }],
   creator: BUSINESS.name,
@@ -44,8 +44,12 @@ export const metadata: Metadata = {
     "lease surrender",
     "data center decommissioning",
     "cubicle removal",
+    "Florida office decommissioning",
+    "Miami office furniture removal",
+    "Orlando office decommissioning",
+    "Tampa office furniture liquidation",
+    "Jacksonville office decommissioning",
     "Naples FL office decommissioning",
-    "Fort Myers office furniture removal",
     "commercial furniture logistics",
   ],
   alternates: { canonical: "/" },
@@ -56,7 +60,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "Office Decommissioning & Furniture Liquidation | OFB of SWFL",
     description:
-      "Removal, logistics, documentation and asset resale under one contract. Naples FL, projects in 48 states.",
+      "Removal, logistics, documentation and asset resale under one contract. All of Florida, projects in 48 states.",
     images: [
       {
         url: "/cleared-office-floor.jpg",
@@ -70,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Office Decommissioning & Furniture Liquidation | OFB of SWFL",
     description:
-      "Removal, logistics, documentation and asset resale under one contract. Naples FL, projects in 48 states.",
+      "Removal, logistics, documentation and asset resale under one contract. All of Florida, projects in 48 states.",
     images: ["/cleared-office-floor.jpg"],
   },
   robots: {

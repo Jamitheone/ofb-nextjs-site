@@ -15,8 +15,8 @@ export const HOME_FAQS: FaqItem[] = [
     a: "A standard corporate floor is typically a few days on site once the plan is approved. Booking four to six weeks out is comfortable and gets you better liquidation recovery, because there is time to find buyers. We do take short-notice and emergency clearances.",
   },
   {
-    q: "Do you only work in Southwest Florida?",
-    a: "Naples is home base and where we can walk a space on short notice. Projects run in all 48 contiguous states through our vendor network, managed centrally under one project plan and one invoice.",
+    q: "Do you cover all of Florida?",
+    a: "Yes, statewide, from Miami and Fort Lauderdale up through Orlando, Tampa, Jacksonville and the Panhandle. We can walk a space on short notice in every major Florida metro, and projects also run in all 48 contiguous states through our vendor network, managed centrally under one project plan and one invoice.",
   },
   {
     q: "What happens to the furniture you remove?",
