@@ -137,6 +137,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               gtag('event', 'submit_lead_form', {
                 'send_to': 'AW-18174858325'
               });
+              // GA4 key event -- every event above scopes send_to to the Ads
+              // container only, so a real form submission never reached GA4
+              // (only the automatic form_start ever did). This is the fix:
+              // fire the SAME submission as a GA4 event with no send_to override,
+              // which lets it land on the default (all-configured) targets,
+              // i.e. G-59R11DBQEN too. 2026-09-14.
+              gtag('event', 'form_submit');
             };
             window.fireContactClick = function(type) {
               // Secondary signal — phone/email clicks (Contact - Email or Call)
@@ -148,6 +155,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 'send_to': 'AW-18174858325',
                 'contact_type': type
               });
+              // Same GA4 gap as the form submit above -- mirror it un-scoped.
+              gtag('event', 'contact_click_ga4', { 'contact_type': type });
             };
           `}
         </Script>
