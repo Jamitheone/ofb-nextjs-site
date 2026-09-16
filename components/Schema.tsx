@@ -29,7 +29,7 @@ export function BusinessSchema() {
       id="ld-business"
       data={{
         "@context": "https://schema.org",
-        "@type": "MovingCompany",
+        "@type": "ProfessionalService",
         "@id": `${SITE_URL}/#business`,
         name: BUSINESS.name,
         alternateName: BUSINESS.shortName,
