@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
@@ -139,6 +139,39 @@ export default function DecommissioningEstimator() {
     () => computeEstimate(sqftNum, assets, condition, timeline),
     [sqftNum, assets, condition, timeline]
   );
+
+  // ponytail: exit-intent recovery. A facility manager who builds an estimate and
+  // types an email but never hits submit is a lost high-value B2B lead. On page
+  // hide, beacon whatever they filled to /api/contact flagged abandoned so Jeff can
+  // follow up. sendBeacon (not fetch) because unload kills in-flight fetch calls.
+  const captureRef = useRef({ step, lead, status, sqftNum, assets, timeline, condition, estimate, done: false });
+  captureRef.current = { ...captureRef.current, step, lead, status, sqftNum, assets, timeline, condition, estimate };
+  useEffect(() => {
+    const recover = () => {
+      const s = captureRef.current;
+      const email = s.lead.email.trim();
+      if (s.done || s.status === "sent" || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return;
+      s.done = true;
+      const assetList = ASSETS.filter((a) => s.assets.has(a.key)).map((a) => a.label).join(", ");
+      const timelineLabel = TIMELINES.find((t) => t.key === s.timeline)?.label ?? "";
+      const conditionLabel = CONDITIONS.find((c) => c.key === s.condition)?.label ?? "";
+      const rangeText = s.estimate ? `${fmtUSD(s.estimate.low)} to ${fmtUSD(s.estimate.high)}` : "n/a";
+      const payload = JSON.stringify({
+        name: s.lead.name, company: s.lead.company, email,
+        size: `${s.sqftNum.toLocaleString("en-US")} sq ft`,
+        timeline: timelineLabel,
+        message: `ABANDONED estimator, did not submit. Follow up.\nEstimated recovery range: ${rangeText}\nAsset mix: ${assetList}\nCondition: ${conditionLabel}\nTimeline: ${timelineLabel}`,
+        _captcha: "false",
+        _subject: "OFB Estimator, abandoned lead (follow up)",
+        abandoned: true,
+      });
+      try { navigator.sendBeacon(CONTACT_API_URL, new Blob([payload], { type: "application/json" })); } catch { /* best effort */ }
+    };
+    // pagehide only (genuine leave). A tab-switch is not abandonment for B2B
+    // researchers, so we skip visibilitychange to avoid false "abandoned" leads.
+    window.addEventListener("pagehide", recover);
+    return () => window.removeEventListener("pagehide", recover);
+  }, []);
 
   const toggleAsset = (key: AssetKey) => {
     setAssets((prev) => {
