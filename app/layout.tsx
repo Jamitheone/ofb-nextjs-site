@@ -25,13 +25,13 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Office Decommissioning & Furniture Liquidation | OFB of SWFL",
+    default: "Office Decommissioning in Southwest Florida | OFB of SWFL",
     // Per-page titles get the brand appended automatically instead of each page
     // hand-rolling it and drifting.
     template: `%s | ${BUSINESS.shortName}`,
   },
   description:
-    "Office furniture decommissioning, liquidation and asset removal for corporate tenants and Fortune 1000 companies. Serving all of Florida statewide, projects in 48 states. Free assessment, 2-hour response.",
+    "Office decommissioning and furniture liquidation from Naples, serving Southwest Florida and all of Florida. Free assessment, 2-hour response.",
   applicationName: BUSINESS.name,
   authors: [{ name: BUSINESS.name, url: SITE_URL }],
   creator: BUSINESS.name,
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     siteName: BUSINESS.name,
     locale: "en_US",
     url: SITE_URL,
-    title: "Office Decommissioning & Furniture Liquidation | OFB of SWFL",
+    title: "Office Decommissioning in Southwest Florida | OFB of SWFL",
     description:
-      "Removal, logistics, documentation and asset resale under one contract. All of Florida, projects in 48 states.",
+      "Removal, logistics, documentation and asset resale under one contract. Naples, Fort Myers and all of Florida, projects in 48 states.",
     images: [
       {
         url: "/cleared-office-floor.jpg",
@@ -72,9 +72,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Office Decommissioning & Furniture Liquidation | OFB of SWFL",
+    title: "Office Decommissioning in Southwest Florida | OFB of SWFL",
     description:
-      "Removal, logistics, documentation and asset resale under one contract. All of Florida, projects in 48 states.",
+      "Removal, logistics, documentation and asset resale under one contract. Naples, Fort Myers and all of Florida, projects in 48 states.",
     images: ["/cleared-office-floor.jpg"],
   },
   robots: {
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: { icon: "/favicon.ico", apple: "/ofb-logo.png" },
+  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
   category: "business",
 };
 

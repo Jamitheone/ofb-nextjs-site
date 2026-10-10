@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import DecommissioningEstimator from "@/components/estimator/DecommissioningEstimator";
 
 export const metadata: Metadata = {
-  title: "Decommissioning Value Estimator | Office Furniture Brokers of SW Florida",
+  title: "Decommissioning Value Estimator",
+  alternates: { canonical: "/estimator" },
   description:
-    "Estimate the asset recovery value of your office decommissioning project. Enter square footage, asset mix, timeline, and condition to get an illustrative recovery range and a project urgency read.",
+    "Estimate asset recovery value for an office decommissioning project in Florida. Enter size, asset mix and timeline for an illustrative recovery range.",
 };
 
 export default function EstimatorPage() {

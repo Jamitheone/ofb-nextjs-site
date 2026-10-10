@@ -51,9 +51,9 @@ export const SERVICES: Service[] = [
       "Bankruptcy and receivership clearances",
       "Downsizing and space consolidations",
     ],
-    seoTitle: "Office Decommissioning Services, Florida & Nationwide",
+    seoTitle: "Office Decommissioning in Southwest Florida",
     seoDescription:
-      "Full-service office decommissioning. Furniture, cubicles, fixtures and IT removed under one contract, with disposal certificates and a broom-clean handover. Across Florida and nationwide.",
+      "Office decommissioning from Naples, serving Southwest Florida. Furniture, fixtures and IT removed under one contract, with disposal certificates.",
     faqs: [
       {
         q: "What does office decommissioning actually include?",
@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Office Furniture Liquidation & Asset Recovery",
     seoDescription:
-      "Recover real value on outgoing office assets. Inventory, valuation, buyer sourcing and transaction handling, with recovery credited straight against your project cost.",
+      "Office furniture liquidation and asset recovery in Florida. Inventory, valuation and buyer sourcing, with recovery credited against project cost.",
     faqs: [
       {
         q: "How is liquidation value applied to my project?",
@@ -141,7 +141,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Office Furniture Logistics & Relocation",
     seoDescription:
-      "Insured pickup, transport, staging and delivery for office furniture at any quantity. Freight, crew, permits and dock reservations coordinated under one point of contact.",
+      "Insured office furniture pickup, transport, staging and delivery across Florida. Crew, freight, permits and docks under one point of contact.",
     faqs: [
       {
         q: "Do you coordinate with building management on move-out rules?",
@@ -181,7 +181,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Data Center & Server Room Decommissioning",
     seoDescription:
-      "Secure server room and data center clearance with chain-of-custody tracking from teardown to certified disposition. Disposal certificates for compliance and audit.",
+      "Secure server room and data center clearance in Florida with chain-of-custody tracking and disposal certificates for compliance and audit.",
     faqs: [
       {
         q: "How do you handle data security on decommissioned hardware?",
@@ -221,7 +221,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Lease Surrender & Office Restoration Planning",
     seoDescription:
-      "Meet every surrender condition in your lease. Document review, landlord coordination, restoration, photo documentation and a close-out package for legal and property records.",
+      "Lease surrender and office restoration planning in Florida. Lease review, landlord coordination, restoration and a documented close-out package.",
     faqs: [
       {
         q: "What is usually in a surrender clause that tenants miss?",
@@ -261,7 +261,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Multi-Site Office Decommissioning in 48 States",
     seoDescription:
-      "Portfolio-wide and multi-site office clearances managed under one project plan. One point of contact, unified milestones, consolidated invoicing across 48 states.",
+      "Multi-site office decommissioning in 48 states, run from Naples. One project plan, one point of contact, consolidated invoicing.",
     faqs: [
       {
         q: "How many sites can you run at once?",

@@ -16,7 +16,7 @@ import { SERVICE_ICONS, ArrowRight, STROKE } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Office Decommissioning & Liquidation Services",
   description:
-    "Six services covering the full office move-out: decommissioning, asset liquidation, furniture logistics, data center clearance, lease surrender planning and multi-site coordination.",
+    "Six Naples-based services for Southwest Florida office move-outs: decommissioning, asset liquidation, furniture logistics, data center clearance, lease surrender planning and multi-site coordination.",
   alternates: { canonical: "/services" },
   openGraph: {
     type: "website",
