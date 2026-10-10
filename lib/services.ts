@@ -51,7 +51,7 @@ export const SERVICES: Service[] = [
       "Bankruptcy and receivership clearances",
       "Downsizing and space consolidations",
     ],
-    seoTitle: "Office Decommissioning in Southwest Florida",
+    seoTitle: "Office Decommissioning Services in Naples, FL",
     seoDescription:
       "Office decommissioning from Naples, serving Southwest Florida. Furniture, fixtures and IT removed under one contract, with disposal certificates.",
     faqs: [
