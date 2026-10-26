@@ -1,8 +1,8 @@
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import { PhoneLink } from "@/components/TrackedLink";
-import { BUSINESS } from "@/lib/site";
-import { Phone, STROKE } from "@/components/icons";
+import { BUSINESS, EMAIL_HREF } from "@/lib/site";
+import { Phone, Mail, STROKE } from "@/components/icons";
 
 // The old hero loaded a Spline WebGL scene plus two blurred "glow orbs" behind
 // the copy. It never rendered in the Chrome MCP sandbox, it was the single
@@ -36,6 +36,9 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
         <div className="grid lg:grid-cols-[1fr_400px] gap-x-14 gap-y-12 items-center">
           <div>
+            <p className="text-white font-semibold text-xl md:text-2xl tracking-tight mb-2">
+              {BUSINESS.name}
+            </p>
             <p className="label-upper text-[#c7ccd6] mb-6">
               Serving Fortune 1000 and business owners nationwide
             </p>
@@ -68,6 +71,13 @@ export default function Hero() {
                 <Phone size={16} strokeWidth={STROKE} aria-hidden="true" />
                 Call {BUSINESS.phone}
               </PhoneLink>
+              <a
+                href={EMAIL_HREF}
+                className="inline-flex items-center gap-2 bg-white/[0.07] hover:bg-white/[0.13] border border-white/[0.18] text-white font-semibold px-7 py-3.5 rounded-md text-base no-underline backdrop-blur-sm transition-colors duration-200"
+              >
+                <Mail size={16} strokeWidth={STROKE} aria-hidden="true" />
+                {BUSINESS.email}
+              </a>
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 bg-white/[0.07] hover:bg-white/[0.13] border border-white/[0.18] text-white font-semibold px-7 py-3.5 rounded-md text-base no-underline backdrop-blur-sm transition-colors duration-200"
